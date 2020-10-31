@@ -1,0 +1,84 @@
+<hidenav-stretchheader header-height="50" opacity-factor="7" opacity-color="red" init-expanded="false"
+  no-border="false">
+  <ion-toolbar color="none" #static>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light" (click)="expand()">Tabs Header</ion-title>
+  </ion-toolbar>
+
+  <div #shrinkexpand (click)="expand()">
+    <img src="assets/academy.jpg" width="100%">
+  </div>
+
+</hidenav-stretchheader>
+
+<ion-content hidenav-sh-tabscontent>
+  <super-tabs>
+    <super-tabs-toolbar slot="top">
+      <super-tab-button>
+        <ion-icon name="list"></ion-icon>
+        <ion-label>Feed</ion-label>
+      </super-tab-button>
+      <super-tab-button>
+        <ion-icon name="person"></ion-icon>
+        <ion-label>Profile</ion-label>
+      </super-tab-button>
+      <super-tab-button>
+        <ion-icon name="people"></ion-icon>
+        <ion-label>Contacts</ion-label>
+      </super-tab-button>
+    </super-tabs-toolbar>
+
+    <super-tabs-container>
+      <super-tab>
+        <ion-content hidenav-sh-content hidenav-tabspage>
+          <ion-refresher slot="fixed">
+            <ion-refresher-content pullingIcon="arrow-down" pullingText="Pull to refresh" refreshingSpinner="circles"
+              refreshingText="Refreshing...">
+            </ion-refresher-content>
+          </ion-refresher>
+          <ion-card *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
+            <img src="assets/avatar-placeholder.png">
+            <ion-card-header class="hydrated">
+              <ion-card-subtitle role="heading" aria-level="3" class="hydrated">Feed {{i}}</ion-card-subtitle>
+              <ion-card-title role="heading" aria-level="2" class="hydrated">Madison, WI</ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="card-content card-content-ios hydrated">
+              Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the
+              Wisconsin Territory in 1836.
+            </ion-card-content>
+          </ion-card>
+        </ion-content>
+      </super-tab>
+      <super-tab>
+        <ion-content hidenav-sh-content hidenav-tabspage>
+          <ion-card *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
+            <img src="assets/avatar-placeholder.png">
+            <ion-card-header>
+              <ion-card-subtitle>Profile {{i}}</ion-card-subtitle>
+              <ion-card-title>Awesome Title</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              Awesome Content
+            </ion-card-content>
+          </ion-card>
+        </ion-content>
+      </super-tab>
+      <super-tab>
+        <ion-content hidenav-sh-content hidenav-tabspage>
+          <ion-card *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
+            <img src="assets/avatar-placeholder.png">
+            <ion-card-header>
+              <ion-card-subtitle>Contact {{i}}</ion-card-subtitle>
+              <ion-card-title>Awesome Title</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              Awesome Content
+            </ion-card-content>
+          </ion-card>
+        </ion-content>
+      </super-tab>
+    </super-tabs-container>
+  </super-tabs>
+</ion-content>
